@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MK4 Car Detailing Experts</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background: url('https://images.unsplash.com/photo-1517659734352-4a5b7f0c6d48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+    }
+    header {
+      background-color: rgba(0, 51, 102, 0.9);
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      max-height: 80px;
+      vertical-align: middle;
+    }
+    header h1 {
+      display: inline-block;
+      margin: 0;
+      font-size: 24px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+    .landing {
+      text-align: center;
+      padding: 80px 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .landing h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #00ccff;
+    }
+    .landing p {
+      font-size: 18px;
+    }
+    .services {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 30px auto;
+      max-width: 600px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .service {
+      background-color: rgba(0, 0, 0, 0.8);
+      border: 1px solid #003366;
+      padding: 20px;
+      margin: 10px 0;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 6px;
+    }
+    .service:hover {
+      background-color: #111;
+    }
+    .info {
+      background-color: rgba(0, 0, 0, 0.85);
+      border: 1px solid #003366;
+      padding: 15px;
+      margin-top: 10px;
+      display: none;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #003366;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    .confirmation {
+      text-align: center;
+      margin: 20px;
+      color: #00ccff;
+      display: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- شعار افتراضي -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Car-icon-black.svg/1024px-Car-icon-black.svg.png" alt="Logo">
+    <h1>MK4 Car Detailing Experts</h1>
+  </header>
+  
+  <section class="landing">
+    <h2>مرحبًا بك في MK4 Car Detailing Experts</h2>
+    <p>أفضل خدمات التلميع والبوليش والنانو لحماية سيارتك وجعلها تلمع كالمرآة.</p>
+  </section>
+  
+  <section class="services">
+    <div class="service" data-service="بوليش">
+      خدمة بوليش
+      <div class="info" id="info-بوليش">
+        <p>تلميع السيارة خارجيًا باستخدام مواد عالية الجودة.</p>
+        <button onclick="sendRequest('بوليش')">اطلب الآن</button>
+      </div>
+    </div>
+    <div class="service" data-service="بوليش + تنظيف دواخل">
+      بوليش + تنظيف دواخل
+      <div class="info" id="info-بوليش + تنظيف دواخل">
+        <p>تلميع السيارة خارجيًا وتنظيف داخلي شامل لجميع الأسطح والمقاعد.</p>
+        <button onclick="sendRequest('بوليش + تنظيف دواخل')">اطلب الآن</button>
+      </div>
+    </div>
+    <div class="service" data-service="بوليش + نانو + تنظيف دواخل">
+      بوليش + نانو + تنظيف دواخل
+      <div class="info" id="info-بوليش + نانو + تنظيف دواخل">
+        <p>تلميع مع حماية نانو وتنظيف داخلي كامل.</p>
+        <button onclick="sendRequest('بوليش + نانو + تنظيف دواخل')">اطلب الآن</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="confirmation" id="confirmation">سيتم مراجعة طلبك خلال فترة قصيرة.</div>
+
+  <script>
+    const services = document.querySelectorAll('.service');
+    services.forEach(service => {
+      service.addEventListener('click', () => {
+        services.forEach(s => s.querySelector('.info').style.display = 'none');
+        service.querySelector('.info').style.display = 'block';
+      });
+    });
+
+    function sendRequest(serviceName) {
+      const phoneNumber = '9647840510496'; // رقم واتساب بدون 0 وبكود العراق
+      const message = encodeURIComponent(`مرحبا، أود طلب خدمة: ${serviceName} من MK4 Car Detailing Experts.`);
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+      window.open(whatsappURL, '_blank');
+    }
+  </script>
+</body>
+</html>
